@@ -1,23 +1,23 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = {
-    loggedIn: false,
-    token: null
+// don't forget you can use interfaces just like you remember
+const initialState: { loggedIn: boolean; token: string | null } = {
+	loggedIn: false,
+	token: null
 };
 
 const authSlice = createSlice({
-    initialState,
-    name: 'auth',
-    reducers: {
-        login: (state) => {
-            state.loggedIn = true;
-        },
-        logout: (state) => {
-            state.loggedIn = false;
-        }
-    }
+	initialState,
+	name: 'auth',
+	reducers: {
+		login: state => {
+			state.loggedIn = true;
+		},
+		logout: state => {
+			state.loggedIn = false;
+		}
+	}
 });
-
 
 const { actions, reducer } = authSlice;
 

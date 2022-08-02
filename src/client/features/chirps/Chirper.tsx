@@ -1,13 +1,12 @@
-//@ts-nocheck
 import * as React from 'react';
 import { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useAppDispatch, useAppSelector } from '../../store';
 import { addChirp } from './chirps-slice';
 
 const Chirper = () => {
 
-	const dispatch = useDispatch();
-	const chirps = useSelector(state => state.chirps.list);
+	const dispatch = useAppDispatch();
+	const chirps = useAppSelector(state => state.chirps.list);
 
     const [val, setVal] = useState('');
 

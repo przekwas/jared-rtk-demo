@@ -1,19 +1,18 @@
-//@ts-nocheck
 import * as React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useAppDispatch, useAppSelector } from './store';
 import { login, logout } from './features/auth/auth-slice';
 
 import Chirper from './features/chirps/Chirper';
 
 const App = (props: AppProps) => {
-	const dispatch = useDispatch();
-	const { loggedIn } = useSelector(state => state.auth);
-	const chirps = useSelector(state => state.chirps.list);
+	const dispatch = useAppDispatch();
+	const { loggedIn } = useAppSelector(state => state.auth);
+	const chirps = useAppSelector(state => state.chirps.list);
 
 	const test = () => {
 		console.log(logout());
 		dispatch(logout());
-	}
+	};
 
 	return (
 		<main className="container my-5">
